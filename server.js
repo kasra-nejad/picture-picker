@@ -5,12 +5,12 @@ let request = require("request");
 const cron = require("node-cron");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 let pageInfo = (function() {
-  let wordOfDay = "blob";
-  let user = "jimmy";
-  let directLink = "http://www.google.com";
+  let wordOfDay = "";
+  let user = "";
+  let directLink = "";
   return {
     setWord: value => {
       wordOfDay = value;
