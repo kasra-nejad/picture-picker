@@ -26,6 +26,7 @@ body {
   align-self: end;
   text-align: center;
   font-size: 18px;
+  margin-bottom: 1rem;
 }
 .wordOfDay__word {
   font-family: "Josefin Sans", "Trebuchet MS", "Lucida Grande",
@@ -38,7 +39,7 @@ body {
 }
 
 .picOfDay__pic {
-  width: 300px;
+  width: 280px;
   height: 160px;
   box-shadow: -2px 2px 2px #3c3c3c;
   border: 2px solid #ccc;
@@ -47,6 +48,13 @@ body {
 .artistLink {
   font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
   font-size: 16px;
+}
+
+@media (min-width: 360px) {
+  .picOfDay__pic {
+    width: 320px;
+    height: 180px;
+  }
 }
 
 @media (min-width: 460px) {
@@ -77,6 +85,7 @@ body {
   .wordOfDay {
     align-self: center;
     font-size: 28px;
+    margin-bottom: 0;
   }
   .wordOfDay__word {
   }
