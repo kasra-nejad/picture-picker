@@ -1,8 +1,8 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
-let request = require("request");
 const cron = require("node-cron");
+let request = require("request");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -99,7 +99,7 @@ let download = async (filename, callback) => {
   });
 };
 
-cron.schedule("0 0 0 * * *", () => {
+cron.schedule("0 10 0 * * *", () => {
   download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
