@@ -99,11 +99,13 @@ let download = async (filename, callback) => {
   });
 };
 
-cron.schedule("0 10 0 * * *", () => {
+let downloadTask = cron.schedule("* 13 * * *", function() {
   download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
 });
+
+downloadTask.start();
 
 app.get("/", (req, res, next) => {
   res.render("index", {
