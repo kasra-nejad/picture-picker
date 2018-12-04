@@ -1,7 +1,7 @@
 var http = require("http"); //importing http
 
 var options = {
-  host: "picture-of-the-day1.herokuapp.com/",
+  host: "https://picture-of-the-day1.herokuapp.com/",
   port: 80,
   path: "/WAKEUP_DYNO"
 };

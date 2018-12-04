@@ -100,7 +100,7 @@ let download = async (filename, callback) => {
   });
 };
 
-let downloadTask = cron.schedule("05 12 * * *", function() {
+let downloadTask = cron.schedule("35 12 * * *", function() {
   download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
