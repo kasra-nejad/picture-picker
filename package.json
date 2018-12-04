@@ -2,14 +2,15 @@
   "name": "picture_picker",
   "version": "1.0.0",
   "description": "an app which daily displays three random pictures from pixabay",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kasra Saniee Nejad",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "cron": "^1.5.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

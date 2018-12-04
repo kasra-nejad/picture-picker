@@ -47,6 +47,7 @@ let data = fetch("https://www.randomlists.com/data/words.json")
     return response.json();
   })
   .then(jsonData => {
+    // console.log(jsonData.data);
     return jsonData.data;
   })
   .catch(error => {
@@ -99,7 +100,7 @@ let download = async (filename, callback) => {
   });
 };
 
-let downloadTask = cron.schedule("50 23 * * *", function() {
+let downloadTask = cron.schedule("05 12 * * *", function() {
   download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
