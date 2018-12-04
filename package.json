@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "an app which daily displays three random pictures from pixabay",
   "main": "server.js",
+  "now": {
+    "version": 2,
+    "name": "nodejs",
+    "builds": [
+      {
+        "src": "*.js",
+        "use": "@now/node"
+      }
+    ]
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +20,6 @@
   "author": "Kasra Saniee Nejad",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
     "cron": "^1.5.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
