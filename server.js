@@ -1,7 +1,6 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
-const cron = require("node-cron");
 let request = require("request");
 
 const app = express();
@@ -47,7 +46,6 @@ let data = fetch("https://www.randomlists.com/data/words.json")
     return response.json();
   })
   .then(jsonData => {
-    // console.log(jsonData.data);
     return jsonData.data;
   })
   .catch(error => {
@@ -65,7 +63,6 @@ let word = async () => {
 let queryUri = async () => {
   let queryWord = await word();
   let uri = await `https://pixabay.com/api/?key=10784889-6669a8328237f7c67a6855c0d&q=${queryWord}`;
-  console.log(uri);
   return uri;
 };
 
@@ -100,13 +97,9 @@ let download = async (filename, callback) => {
   });
 };
 
-// let downloadTask = cron.schedule("35 13 * * *", function() {
 download("./public/images/picofday.png", function() {
   console.log("Picture saved");
 });
-// });
-
-// downloadTask.start();
 
 app.get("/", (req, res, next) => {
   res.render("index", {
