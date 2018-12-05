@@ -1,7 +1,6 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
-const cron = require("node-cron");
 let request = require("request");
 
 const app = express();
@@ -98,11 +97,11 @@ let download = async (filename, callback) => {
   });
 };
 
-module.exports = function downloadTask() {
-  download("./public/images/picofday.png", function() {
-    console.log("Picture saved");
-  });
-};
+// module.exports = function downloadTask() {
+//   download("./public/images/picofday.png", function() {
+//     console.log("Picture saved");
+//   });
+// };
 // downloadTask = cron.schedule("05 13 * * *", function() {
 //   download("./public/images/picofday.png", function() {
 //     console.log("Picture saved");
@@ -110,6 +109,9 @@ module.exports = function downloadTask() {
 // });
 
 app.get("/", (req, res, next) => {
+  download("./public/images/picofday.png", function() {
+    console.log("Picture saved");
+  });
   res.render("index", {
     wordOfDay: pageInfo.getWord(),
     user: pageInfo.getUser(),
