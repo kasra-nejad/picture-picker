@@ -1,6 +1,7 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
+const cron = require("node-cron");
 let request = require("request");
 
 const app = express();
@@ -97,9 +98,13 @@ let download = async (filename, callback) => {
   });
 };
 
-download("./public/images/picofday.png", function() {
-  console.log("Picture saved");
+let downloadTask = cron.schedule("10 11 * * *", function() {
+  download("./public/images/picofday.png", function() {
+    console.log("Picture saved");
+  });
 });
+
+downloadTask.start();
 
 app.get("/", (req, res, next) => {
   res.render("index", {
