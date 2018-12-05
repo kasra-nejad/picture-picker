@@ -98,11 +98,16 @@ let download = async (filename, callback) => {
   });
 };
 
-module.exports = downloadTask = cron.schedule("05 13 * * *", function() {
+module.exports = function downloadTask() {
   download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
-});
+};
+// downloadTask = cron.schedule("05 13 * * *", function() {
+//   download("./public/images/picofday.png", function() {
+//     console.log("Picture saved");
+//   });
+// });
 
 app.get("/", (req, res, next) => {
   res.render("index", {
