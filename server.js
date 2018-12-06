@@ -108,8 +108,8 @@ let download = async (filename, callback) => {
 //   });
 // });
 
-app.get("/", (req, res, next) => {
-  download("./public/images/picofday.png", function() {
+app.get("/", async (req, res, next) => {
+  await download("./public/images/picofday.png", function() {
     console.log("Picture saved");
   });
   res.render("index", {
